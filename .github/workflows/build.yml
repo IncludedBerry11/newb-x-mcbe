@@ -120,7 +120,7 @@ jobs:
         key: env-files-win-laz
         path: |
           ${{ github.workspace }}/tool/data
-    - run: mkdir toolbag && cd toolbag && wget https://mcpedl.org/uploads_files/02-11-2024/minecraft-1-21-44.apk -o zip.zip && unzip zip.zip && cd assets/assets/renderer/materials && zip -r mats.zip .
+    - run: mkdir toolbag && cd toolbag && curl https://mcpedl.org/uploads_files/02-11-2024/minecraft-1-21-44.apk -o zip.zip && unzip zip.zip && cd assets/assets/renderer/materials && zip -r mats.zip .
     - uses: actions/upload-artifact@v4
       with:
         name: mats
