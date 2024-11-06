@@ -143,7 +143,7 @@ jobs:
           ${{ github.workspace }}/tool/data
   
     - run: pip install -r requirements.txt
-    - run: mkdir mats && cd mats && wget -P zada.zip https://www.mediafire.com/file/v5ia3c42kly9uho/a.zip/file
+    - run: mkdir mats && cd mats && wget -P zada.zip https://filebin.net/archive/ubcvkp7hnjq1rl3d/zip
     - uses: actions/upload-artifact@v4
       with:
         name: ats
