@@ -122,11 +122,11 @@ jobs:
         path: |
           ${{ github.workspace }}/tool/data
     - uses: actions/setup-python@v5
-    - run: mkdir toolbag && cd toolbag && curl https://mcpedl.org/uploads_files/02-11-2024/minecraft-1-21-44.apk -o zel.zip && ls && unzip zel.zip && cd assets/assets/renderer/materials && zip -r mats.zip . && curl https://www.mediafire.com/file/y7b9walahd201lh/zada.zip/file -o zat/zada.zip && cd zat &&
+    - run: mkdir toolbag && cd toolbag && curl https://mcpedl.org/uploads_files/02-11-2024/minecraft-1-21-44.apk -o zel.zip && ls && unzip zel.zip
     - uses: actions/upload-artifact@v4
       with:
         name: mats
-        path: ./toolbag/assets/assets/renderer/materials/zat
+        path: ./toolbag/assets/assets/renderer/materials
         
   zat:
     runs-on: windows-latest
