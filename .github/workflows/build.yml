@@ -121,9 +121,26 @@ jobs:
         key: env-files-win-laz
         path: |
           ${{ github.workspace }}/tool/data
-    - run: mkdir toolbag && cd toolbag && curl https://mcpedl.org/uploads_files/02-11-2024/minecraft-1-21-44.apk -o zel.zip && ls && unzip zel.zip && cd assets/assets/renderer/materials && zip -r mats.zip .
+    - uses: actions/setup-python@v5
+    - run: mkdir toolbag && cd toolbag && curl https://mcpedl.org/uploads_files/02-11-2024/minecraft-1-21-44.apk -o zel.zip && ls && unzip zel.zip && cd assets/assets/renderer/materials && zip -r mats.zip . && curl https://www.mediafire.com/file/y7b9walahd201lh/zada.zip/file -o zat/zada.zip && cd zat &&
     - uses: actions/upload-artifact@v4
       with:
         name: mats
-        path: ./toolbag/assets/assets/renderer/materials/mats.zip
-  
+        path: ./toolbag/assets/assets/renderer/materials/zat
+        
+  zat:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/cache@v4
+      with:
+        key: env-files-win-laz
+        path: |
+          ${{ github.workspace }}/tool/data
+    - uses: actions/setup-python@v5
+    - run: pip install -r requirements.txt
+    - run: curl https://www.mediafire.com/file/y7b9walahd201lh/zada.zip/file -o mats/zada.zip && cd mats && unzip zada.zip && rm -r zada.zip && lazurite serialize * -o matter
+    - uses: actions/upload-artifact@v4
+      with:
+        name: mats
+        path: ./mats/matter
