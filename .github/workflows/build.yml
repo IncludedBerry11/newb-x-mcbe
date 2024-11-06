@@ -152,5 +152,5 @@ jobs:
     - run: cd mats && unzip zada.zip && unzip a.zip && rm -r *.zip && mkdir matter && lazurite serialize * -o matter
     - uses: actions/upload-artifact@v4
       with:
-        name: mats
+        name: matter
         path: ./mats/matter
