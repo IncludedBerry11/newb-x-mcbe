@@ -143,13 +143,14 @@ jobs:
           ${{ github.workspace }}/tool/data
   
     - run: pip install -r requirements.txt
-    - run: mkdir mats && cd mats && curl https://www.mediafire.com/file/eol0zjnn6ew1wpv/ats.zip/file -o zada.zip 
+    - run: mkdir mats && cd mats && curl https://www.mediafire.com/file/v5ia3c42kly9uho/a.zip/file -o zada.zip
     - uses: actions/upload-artifact@v4
       with:
         name: ats
         path: ./mats
     - run: cd mats && ls 
-    - run: cd mats && ls && unzip zada && mkdir matter && lazurite serialize * -o matter
+    - run: cd mats && tar -xf zada.zip
+    - run: cd mats && unzip zada.zip && mkdir matter && lazurite serialize * -o matter
     - uses: actions/upload-artifact@v4
       with:
         name: mats
