@@ -126,7 +126,7 @@ jobs:
         python-version: '3.11' 
         cache: 'pip'
     - run: pip install -r requirements.txt
-    - run: mkdir toolbag && cd toolbag && curl https://mcpedl.org/uploads_files/02-11-2024/minecraft-1-21-44.apk -o zel.zip && unzip zel.zip && cp -r assets/assets/renderer/materials/* mats && rm -r mats/materials.index.json && lazurite unpack mats/* -o mats/unpack
+    - run: mkdir toolbag && cd toolbag && curl https://mcpedl.org/uploads_files/02-11-2024/minecraft-1-21-44.apk -o zel.zip && unzip zel.zip && mkdir mats && cp -r assets/assets/renderer/materials/* mats && rm -r mats/materials.index.json && mkdir mats/unpack && lazurite unpack mats/* -o mats/unpack
     - uses: actions/upload-artifact@v4
       with:
         name: mats
